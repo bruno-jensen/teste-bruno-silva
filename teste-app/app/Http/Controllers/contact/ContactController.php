@@ -18,8 +18,8 @@ class ContactController extends Controller
      */
     public function index()
     {                
-        
-        $contactData['contactList'] = DB::table('contact')->get();          
+            
+        $contactData['contactList'] = Contact::get();
         
         return view('contact.index', $contactData);
     }
