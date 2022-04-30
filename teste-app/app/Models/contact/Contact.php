@@ -2,12 +2,14 @@
 
 namespace App\Models\contact;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+//use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contact extends Model
 {
-    use HasFactory;
+    //use HasFactory;
+    use SoftDeletes;
     
     protected $table = 'contact';
     
@@ -24,6 +26,7 @@ class Contact extends Model
     ];        
     
     protected $primaryKey = 'ID';
+    protected $dates = ['deleted_at'];
     
     public $timestamps = false;
     

@@ -59,15 +59,26 @@
 		</div>
 		<div class="col-sm" style="text-align: center;">
 			<div class="space"></div>			
-			<a href="{{ url('contact/delete/') }}" title="Delet contact">
-				<i class="fas fa-trash"></i>
+			<form action="{{ url('contact/destroy') }}/{{ $contact->ID }}" method="POST">
+				@csrf
+  				<input type="hidden" name="id" value={{ $contact->ID }} />
+  				<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+			</form>
+			<div class="space"></div>
+			<a href="{{ url('contact/') }}/{{ $contact->ID }}/edit" title="Edit contact">
+				<i class="far fa-edit"></i>
 			</a>
 			<div class="space"></div>						
 			<a href="{{ url('contact/details')}}/{{ $contact->ID }}" title="Details">
 				<i class="fas fa-search-plus"></i>
-			</a>
+			</a>			
 		</div>
 	</div>
+
+	<form method='POST' id='formgeral' action="{{ url('contact/delete') }}/{{ @$ID }}" enctype="multipart/form-data">
+		@csrf
+		<input type="hidden" id="ID" name="ID" value="{{ @$ID }}">
+	</form>
 
   @endforeach
   

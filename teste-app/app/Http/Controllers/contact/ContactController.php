@@ -137,6 +137,8 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         //
-        return view('contact.index');
+        $contact->delete();
+        
+        return redirect('contact/');
     }
 }

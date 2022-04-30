@@ -37,7 +37,7 @@ Route::prefix('contact')->group(
         Route::get('/{contact}/edit/', 'contact\ContactController@edit');
         Route::post('/store', 'contact\ContactController@store');
         Route::post('/update/{contact}', 'contact\ContactController@update');
-        //Route::resource('', 'contact\ContactController');
+        Route::post('/destroy/{contact}', 'contact\ContactController@destroy');
 });
 
 Route::get('/token', function (Request $request) {

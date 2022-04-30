@@ -43,13 +43,15 @@
       {{ @$email }}
     </div>
     <div class="col-sm" style="text-align: center;">
+    	<form action="{{ url('contact/destroy') }}/{{ @$ID }}" method="POST">
+			@csrf
+  			<input type="hidden" name="id" value={{ @$ID }} />
+  			<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+		</form>
+		<div class="space"></div>	
 		<a href="{{ url('contact/') }}" title="Back">
 			<i class="fas fa-arrow-circle-left"></i>
-		</a>
-		<div class="space"></div>
-		<a href="{{ url('contact/delete/') }}" title="Delete contact">
-			<i class="fas fa-trash"></i>
-		</a>
+		</a>		
 		<div class="space"></div>
 		<a href="{{ url('contact/') }}/{{ @$ID }}/edit" title="Edit contact">
 			<i class="far fa-edit"></i>
